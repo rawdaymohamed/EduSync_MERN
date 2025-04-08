@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { UserButton, useClerk, useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 import { assets } from "../../../assets/assets";
+import { AppContext } from "../../../context/AppContext";
 
 const Navbar = () => {
   const isCoursesPage = location.pathname.includes("/courses");
 
   const { openSignIn } = useClerk();
+  const { isEducator } = useContext(AppContext);
   const { user } = useUser();
   return (
     <>
@@ -18,13 +20,15 @@ const Navbar = () => {
       >
         <Link to="/">
           <img src={assets.logo} alt="logo" className="w-28 cursor-pointer" />
-        </Link >
+        </Link>
         <div className="hidden md:flex items-center gap-5 text-gray-500">
           <div className="flex items-center gap-3">
             {user && (
               <>
-                <button>Become Educator</button> |{" "}
-                <Link to="/my-enrollments">My Enrollments</Link>
+                <Link to="/educator">
+                  {isEducator ? "Educator Dashboard" : "Become Educator"}
+                </Link>{" "}
+                | <Link to="/my-enrollments">My Enrollments</Link>
               </>
             )}
           </div>
@@ -64,9 +68,9 @@ const Navbar = () => {
         </div>
         {user && (
           <div className="flex items-center justify-end gap-4 text-gray-500">
-            <button className="cursor-pointer hover:bg-gray-100">
-              Become Educator
-            </button>
+             <Link to="/educator">
+                  {isEducator ? "Educator Dashboard" : "Become Educator"}
+                </Link>
             <div>|</div>
             <Link to="/my-enrollments" className="block hover:bg-gray-100">
               My Enrollments
