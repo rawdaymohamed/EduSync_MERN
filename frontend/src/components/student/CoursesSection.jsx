@@ -6,10 +6,10 @@ import CourseCard from "./CourseCard";
 const CoursesSection = () => {
   const {allCourses} = useContext(AppContext);
   return (
-    <div className="py-16 md:px-36 px-8 flex flex-col">
+    <div className="py-16 md:px-36 px-8 flex flex-col gap-3">
       <h2 className="text-3xl font-medium text-gray-800">Learn from the Best</h2>
-      <p className="text-sm md:text-base text-gray-500 my-3">Discover the top-rated courses across various categories. From coding and design to business <br /> and wellness, our courses are crafted to deliver results.</p>
-      <div className="grid grid-cols-auto gap-3 px-4 md:px-0 my-10 md:my-12">
+      <p className="text-sm md:text-lg text-gray-500 my-3">Discover the top-rated courses across various categories. From coding and design to business <br /> and wellness, our courses are crafted to deliver results.</p>
+      <div className="grid grid-cols-auto gap-3 px-4 md:px-0 my-10 ">
         {allCourses.slice(0, 4).map((course)=><CourseCard key={course._id} course={course}/>)}
 
       </div>
