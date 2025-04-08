@@ -16,9 +16,9 @@ const Navbar = () => {
           isCoursesPage ? "bg-white" : "bg-cyan-100/70"
         }`}
       >
-        <div>
+        <Link to="/">
           <img src={assets.logo} alt="logo" className="w-28 cursor-pointer" />
-        </div>
+        </Link >
         <div className="hidden md:flex items-center gap-5 text-gray-500">
           <div className="flex items-center gap-3">
             {user && (
