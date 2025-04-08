@@ -1,6 +1,5 @@
 import React from "react";
 import { dummyTestimonial, assets } from "../../assets/assets";
-import { calculateAvgRating } from "../../lib/calculateAvgRating";
 
 const TestimonialsSection = () => {
   return (
